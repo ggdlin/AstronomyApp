@@ -13,6 +13,7 @@
 		E64EF07C255F036E00F74720 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E64EF07A255F036E00F74720 /* Main.storyboard */; };
 		E64EF07E255F037100F74720 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E64EF07D255F037100F74720 /* Assets.xcassets */; };
 		E64EF081255F037100F74720 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E64EF07F255F037100F74720 /* LaunchScreen.storyboard */; };
+		E64EF08A255F0F2500F74720 /* AstronomyPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64EF089255F0F2500F74720 /* AstronomyPicture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E64EF07D255F037100F74720 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E64EF080255F037100F74720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E64EF082255F037100F74720 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E64EF089255F0F2500F74720 /* AstronomyPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomyPicture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,11 +58,12 @@
 		E64EF073255F036E00F74720 /* AstronomyApp */ = {
 			isa = PBXGroup;
 			children = (
+				E64EF089255F0F2500F74720 /* AstronomyPicture.swift */,
 				E64EF074255F036E00F74720 /* AppDelegate.swift */,
 				E64EF076255F036E00F74720 /* SceneDelegate.swift */,
 				E64EF078255F036E00F74720 /* ViewController.swift */,
-				E64EF07A255F036E00F74720 /* Main.storyboard */,
 				E64EF07D255F037100F74720 /* Assets.xcassets */,
+				E64EF07A255F036E00F74720 /* Main.storyboard */,
 				E64EF07F255F037100F74720 /* LaunchScreen.storyboard */,
 				E64EF082255F037100F74720 /* Info.plist */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E64EF079255F036E00F74720 /* ViewController.swift in Sources */,
+				E64EF08A255F0F2500F74720 /* AstronomyPicture.swift in Sources */,
 				E64EF075255F036E00F74720 /* AppDelegate.swift in Sources */,
 				E64EF077255F036E00F74720 /* SceneDelegate.swift in Sources */,
 			);

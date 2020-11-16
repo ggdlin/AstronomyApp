@@ -8,12 +8,83 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var explanationLabel: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    let urlPictureOfTheDay = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        activityIndicator.color = .blue
+        stackView.isHidden = true
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        fetchData()
+        
+        
+        
+
+        
+        
     }
-
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
 }
 
+
+
+extension ViewController {
+    
+    func fetchData() {
+        guard let url = URL(string: urlPictureOfTheDay) else { return }
+        print(url)
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            guard let data = data else { return }
+            print(data)
+            do {
+                let potd = try JSONDecoder().decode(AstronomyPicture.self, from: data)
+                print("JSON decoded data: \(potd)")
+                
+                if let url = URL(string: potd.url) {
+                                        
+                    URLSession.shared.dataTask(with: url) { (data, _, error) in
+                        if let error = error {
+                            print(error)
+                            return
+                        }
+                        guard let data = data, let image = UIImage(data: data) else { return }
+                        
+                        DispatchQueue.main.async {
+                            self.titleLabel.text = "\(potd.date) \(potd.title)"
+                            self.explanationLabel.text = potd.explanation
+                            self.imageView.image = image
+                            self.activityIndicator.stopAnimating()
+                            self.stackView.isHidden.toggle()
+                        }
+                        
+                    }.resume()
+                    
+                    
+                    
+                }
+            } catch let error {
+                print("error JSON decode: \(error)")
+            }
+            
+        }.resume()
+    }
+    
+
+}
